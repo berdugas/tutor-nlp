@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: tutor-nlp
+    runtime: python
+    buildCommand: "pip install --upgrade pip && pip install spacy==3.7.2 --prefer-binary && pip install calamancy==0.1.3 fastapi==0.111.0 uvicorn==0.29.0"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
